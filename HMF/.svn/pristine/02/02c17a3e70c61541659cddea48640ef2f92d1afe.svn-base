@@ -1,0 +1,664 @@
+﻿@model HMF.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Shop Item - Start Bootstrap Template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Profile.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/shop-item.css" rel="stylesheet">
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+
+        $(document).ready(function (e) {
+
+           // var spinner = $("#spinner").spinner();
+            $(".rating input:radio").attr("checked", false);
+            $('.rating input').click(function () {
+                $(".rating span").removeClass('checked');
+                $(this).parent().addClass('checked');
+            });
+
+            $('input:radio').change(
+            function () {
+                var userRating = this.value;
+                alert(userRating);
+            });
+
+          //  e.preventDefault();
+
+            $("div#menudiv").hide();
+            $("div.well").hide();
+            $("div#addToCart").hide();
+
+            $('a#description').on('click', function (e) {
+
+                e.preventDefault();
+
+                $("div#description").show();
+                $("div.well").removeClass("active");
+                $("div#menudiv").removeClass("active");
+                $("div#description").addClass("active");
+                $("div#menudiv").hide();
+                $("div.well").hide();
+                $('div#addToCart').hide();
+
+            });
+
+            $('a#menu').on('click', function (e) {
+
+             //   e.preventDefault();
+
+                $("div#description").hide();
+                $("div#menudiv").show();
+                $("div#description").removeClass("active");
+                $("div.well").removeClass("active");
+                $("div#menudiv").addClass("active");
+                $("div.well").hide();
+                $('div#addToCart').hide();
+
+            });
+
+            $('a#reviews').on('click', function (e) {
+
+              //  e.preventDefault();
+
+                $("div#description").hide();
+                $("div#menudiv").hide();
+                $("div.well").show();
+                $("div#menudiv").removeClass("active");
+                $("div#description").removeClass("active");
+                $("div.well").addClass("active");
+                $('div#addToCart').hide();
+
+            });
+
+            $('a#menuClick').on('click', function (e) {
+
+                //  e.preventDefault();
+
+                $("div#menudiv").removeClass("active");
+                $("div#description").removeClass("active");
+                $("div.well").removeClass("active");
+                $("div#addToCart").show();
+                $('a#menuClick').hide();
+
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    @*<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Start Bootstrap</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>*@
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Business Name</p>
+                <div class="list-group">
+                    <a id="description" href="#Description" class="list-group-item">Description</a>
+                    <a id="menu" href="#Menu" class="list-group-item">Menu</a>
+                    <a id="reviews" href="#Reviews" class="list-group-item">Orders</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail" id="description">
+
+                    <div class="col-md-12 blogShort">
+
+
+                        <section>
+
+                            <div class="container-fluid" style="margin-top: 30px;">
+                                <div class="profile-head">
+                                    <div class="col-md- col-sm-4 col-xs-12">
+                                        <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif" class="img-responsive" />
+                                        <h6>Akshay Gurao</h6>
+                                    </div><!--col-md-4 col-sm-4 col-xs-12 close-->
+
+
+                                    <div class="col-md-5 col-sm-5 col-xs-12">
+                                        <h5>Akshay Gurao</h5>
+                                        <p>Actor / Dancer </p>
+                                        <ul>
+                                            <li><span class="glyphicon glyphicon-briefcase"></span> 1 years</li>
+                                            <li><span class="glyphicon glyphicon-map-marker"></span> U.S.A.</li>
+                                            <li><span class="glyphicon glyphicon-home"></span> 39, Boylston Street, Boston, MA, U.S.A.</li>
+                                            <li><span class="glyphicon glyphicon-phone"></span> <a href="#" title="call">(+1) 617 6023348</a></li>
+                                            <li><span class="glyphicon glyphicon-envelope"></span><a href="#" title="mail">gurao.a@husky.neu.edu</a></li>
+
+                                        </ul>
+
+
+                                    </div><!--col-md-8 col-sm-8 col-xs-12 close-->
+
+
+
+
+                                </div><!--profile-head close-->
+                            </div><!--container close-->
+
+
+                            <div id="sticky" class="container-fluid">
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs nav-menu" role="tablist">
+                                    <li class="active">
+                                        <a href="#profile" role="tab" data-toggle="tab">
+                                            <i class="fa fa-male"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#change" role="tab" data-toggle="tab">
+                                            <i class="fa fa-key"></i> Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Education" role="tab" data-toggle="tab">
+                                            <i class="glyphicon glyphicon-education"></i> Edit Menu
+                                        </a>
+                                    </li>
+                                   
+                                </ul><!--nav-tabs close-->
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane fade active in" id="profile">
+                                        <div class="container-fluid">
+                                            <div class="col-sm-11" style="float:left;">
+                                                <div class="hve-pro">
+                                                    <p>
+                                                        Hello I’m Akshay Gurao, a leading expert in interactive and creative design specializing in the mobile medium.
+                                                        My graduation from Northeastern University with a Bachelor of Design majoring in visual communication.
+                                                    </p>
+                                                </div><!--hve-pro close-->
+                                            </div><!--col-sm-12 close-->
+                                            <br clear="all" />
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4 class="pro-title">Biography</h4>
+                                                </div><!--col-md-12 close-->
+
+
+                                                <div class="col-md-6">
+
+                                                    <div class="table-responsive responsiv-table">
+                                                        <table class="table bio-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Firstname</td>
+                                                                    <td>: Akshay</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Lastname</td>
+                                                                    <td>: Gurao</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Birthday</td>
+                                                                    <td>: 11 January 1991</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Country</td>
+                                                                    <td>: U.S.A.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Occupation</td>
+                                                                    <td>: Actor</td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!--table-responsive close-->
+                                                </div><!--col-md-6 close-->
+
+                                                <div class="col-md-6">
+
+                                                    <div class="table-responsive responsiv-table">
+                                                        <table class="table bio-table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Email Id</td>
+                                                                    <td>: gurao.a@husky.neu.edu</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Mobile</td>
+                                                                    <td>: (+6283) 456 789</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Phone</td>
+                                                                    <td>: (+021) 956 789123</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Experience</td>
+                                                                    <td>: 1 years</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Twiter</td>
+                                                                    <td>akshay</td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div><!--table-responsive close-->
+                                                </div><!--col-md-6 close-->
+
+                                            </div><!--row close-->
+
+
+
+
+                                        </div><!--container close-->
+                                    </div><!--tab-pane close-->
+
+
+                                    <div class="tab-pane fade" id="change">
+                                        <div class="container-fluid fom-main">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h2 class="register">Edit Your Profile</h2>
+                                                </div><!--col-sm-12 close-->
+
+                                            </div><!--row close-->
+                                            <br />
+                                            <div class="row">
+
+                                                <form name="editProfile" class="form-horizontal main_form text-left" id="contact_form">
+                                                    <fieldset>
+
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">First Name</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="firstname" placeholder="First Name" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Last Name</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="lastname" placeholder="Last Name" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">E-Mail</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Phone #</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Address</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <textarea class="form-control" name="address" placeholder="Address"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <!-- Select Basic -->
+                                                        <!-- upload profile picture -->
+                                                        <div class="col-md-12 text-left">
+                                                            <div class="uplod-picture">
+                                                                <span class="btn btn-default uplod-file">
+                                                                    Upload Photo <input type="file" />
+                                                                </span>
+                                                                <span class="btn btn-default uplod-file">
+                                                                    Upload Resume <input type="file" />
+                                                                </span>
+                                                                <span class="btn btn-default uplod-file">
+                                                                    Upload Video <input type="file" />
+                                                                </span>
+                                                            </div><!--uplod-picture close-->
+                                                        </div><!--col-md-12 close-->
+                                                        <!-- Button -->
+                                                        <div class="form-group col-md-10">
+                                                            <div class="col-md-6">
+                                                                <button type="submit" class="btn btn-warning submit-button">Save</button>
+                                                                <button type="submit" class="btn btn-warning submit-button">Cancel</button>
+
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div><!--row close-->
+                                        </div><!--container close -->
+                                    </div><!--tab-pane close-->
+
+
+                                    <div class="tab-pane fade" id="Education">
+                                        <div class="container-fluid fom-main">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h2 class="register">Education</h2>
+                                                </div><!--col-sm-12 close-->
+
+                                            </div><!--row close-->
+                                            <br />
+                                            <div class="row">
+
+                                                <form name="education" class="form-horizontal main_form text-left" id="contact_form">
+                                                    <fieldset>
+
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">University Name</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="univ_name"  class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Major Name</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="major_name"  class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Year</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="year"  class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">What did u learn at this university?</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <textarea class="form-control"  placeholder="Description of Education"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 text-left">
+                                                            <div class="form-group col-md-10">
+                                                                <div class="col-md-6">
+                                                                    <button type="submit" class="btn btn-warning submit-button">Save</button>
+                                                                    <button type="submit" class="btn btn-warning submit-button">Cancel</button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div><!--row close-->
+                                        </div><!--container close -->
+                                    </div><!--tab-pane close-->
+
+
+
+                                    <div class="tab-pane fade" id="Experience">
+                                        <div class="container-fluid fom-main">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h2 class="register">Experience</h2>
+                                                </div><!--col-sm-12 close-->
+
+                                            </div><!--row close-->
+                                            <br />
+                                            <div class="row">
+
+                                                <form name="experience" class="form-horizontal main_form text-left" id="contact_form">
+                                                    <fieldset>
+
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Production Company Name</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="comp_name" placeholder="Production Company Name" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Designation</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="designation" placeholder="Designation" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Achievements at the company</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <textarea class="form-control" name="Achievements" placeholder="Achievements at the company"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 text-left">
+                                                            <div class="form-group col-md-10">
+                                                                <div class="col-md-6">
+                                                                    <button type="submit" class="btn btn-warning submit-button">Save</button>
+                                                                    <button type="submit" class="btn btn-warning submit-button">Cancel</button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div><!--row close-->
+                                        </div><!--container close -->
+                                    </div><!--tab-pane close-->
+
+
+
+
+                                    <div class="tab-pane fade" id="Skills">
+                                        <div class="container-fluid fom-main">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <h2 class="register">Skills</h2>
+                                                </div><!--col-sm-12 close-->
+
+                                            </div><!--row close-->
+                                            <br />
+                                            <div class="row">
+
+                                                <form class="form-horizontal main_form text-left" id="contact_form">
+                                                    <fieldset>
+
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Acting Skills</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="act" placeholder="Enter ur skills here" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Text input-->
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Dancing Skills</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <input name="dance" placeholder="Enter ur skills here" class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label class="col-md-10 control-label">Other skills</label>
+                                                            <div class="col-md-12 inputGroupContainer">
+                                                                <div class="input-group">
+                                                                    <textarea class="form-control" name="others" placeholder="Enter ur Special skills here"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 text-left">
+                                                            <div class="form-group col-md-10">
+                                                                <div class="col-md-6">
+                                                                    <button type="submit" class="btn btn-warning submit-button">Save</button>
+                                                                    <button type="submit" class="btn btn-warning submit-button">Cancel</button>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div><!--row close-->
+                                        </div><!--container close -->
+                                    </div><!--tab-pane close-->
+                                </div><!--tab-content close-->
+                            </div><!--container close-->
+
+                        </section><!--section close-->
+
+
+                    </div>
+
+                </div>
+
+                <div class="thumbnail" id="menudiv">
+
+
+                </div>
+
+
+
+                <div class="well">
+                    <h1>Orders</h1>
+
+                    <table class="table table-hover table-bordered results">
+                        <thead>
+                            <tr>
+                                <th class="col-md-1">#</th>
+                                <th class="col-md-2 col-xs-1">Menu Item</th>
+                                <th class="col-md-2 col-xs-1">Order Time</th>
+                                <th class="col-md-2 col-xs-1">Status</th>
+                                <th class="col-md-2 col-xs-1"></th>
+                            </tr>
+                            @*<tr class="warning no-result">
+                                    <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                                </tr>*@
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Pizza</td>
+                                <td>time</td>
+                                <td>Status</td>
+                                <td>
+                                    <form>
+                                        <input class="btn btn-success" type="submit" value="Ready" />
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    @*<div class="container">
+            <hr>
+             Footer
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Your Website 2014</p>
+                    </div>
+                </div>
+            </footer>
+        </div>*@
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+

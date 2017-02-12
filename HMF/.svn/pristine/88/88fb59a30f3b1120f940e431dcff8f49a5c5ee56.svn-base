@@ -1,0 +1,73 @@
+﻿using HMF.Controllers;
+using HMF.Models;
+using HMF.Repository;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+using Microsoft.Practices.Unity;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
+using System.Web.Security;
+using System.Web.SessionState;
+using Unity.Mvc5;
+
+namespace HMF
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DependencyConfig.Initialise();
+        }
+        protected void Application_BeginRequest()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
+        }
+    }
+
+    public class DependencyConfig
+    {
+        public static void Initialise()
+        {
+            var container = BuildUnityContainer();
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+        }
+
+        private static IUnityContainer BuildUnityContainer()
+        {
+            var container = new UnityContainer();
+
+            container.RegisterType<DbContext, HomeMadeFoodEntities1>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<HttpRequestBase>(new InjectionFactory(_ => new HttpRequestWrapper(HttpContext.Current.Request)));
+            container.RegisterType<HttpResponseBase>(new InjectionFactory(_ => new HttpResponseWrapper(HttpContext.Current.Response)));
+            container.RegisterType<HttpContextBase>(new InjectionFactory(_ => new HttpContextWrapper(HttpContext.Current)));
+            container.RegisterType<DbContext, ApplicationDbContext>(new HierarchicalLifetimeManager());
+
+
+
+            container.RegisterType<IAuthenticationManager>(new InjectionFactory(c => HttpContext.Current.GetOwinContext().Authentication));
+            
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(new HierarchicalLifetimeManager());
+            container.RegisterType<UserManager<ApplicationUser>>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<AccountController>(new InjectionConstructor(container.Resolve<IUserRepository>()));
+            Database.SetInitializer<ApplicationDbContext>(null);
+
+            return container;
+        }
+    }
+}

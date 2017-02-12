@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HomeMadeFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="address_Id" />
+    </Key>
+    <Property Name="address_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="line1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="line2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="zipcode" Type="Int32" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Address__Employee" FromRole="Address" ToRole="Employee" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_Id" />
+    </Key>
+    <Property Name="customer_Id" Type="Int32" Nullable="false" />
+    <Property Name="customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_AddressId" Type="Int32" />
+    <Property Name="customer_paymentMethodCode" Type="Int32" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Customer_Address" FromRole="Customer" ToRole="Address" />
+    <NavigationProperty Name="PaymentMethod" Relationship="Self.FK" FromRole="Customer" ToRole="PaymentMethod" />
+  </EntityType>
+  <EntityType Name="EmpFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="employee_Id" Type="Int32" />
+    <Property Name="food_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_address" FromRole="EmpFood" ToRole="Employee" />
+    <NavigationProperty Name="Food" Relationship="Self.FK2" FromRole="EmpFood" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employee_Id" />
+    </Key>
+    <Property Name="employee_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="employe_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="address_Id" Type="Int32" />
+    <Property Name="employee_emailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ratings" Type="Int32" />
+    <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Address__Employee" FromRole="Employee" ToRole="Address" />
+    <NavigationProperty Name="EmpFoods" Relationship="Self.FK_address" FromRole="Employee" ToRole="EmpFood" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="food_Id" />
+    </Key>
+    <Property Name="food_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cuisine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EmpFoods" Relationship="Self.FK2" FromRole="Food" ToRole="EmpFood" />
+    <NavigationProperty Name="OrderFoodRelations" Relationship="Self.FK_OrderFoodRelation_Food" FromRole="Food" ToRole="OrderFoodRelation" />
+  </EntityType>
+  <EntityType Name="OrderFoodRelation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="orderid" Type="Int32" />
+    <Property Name="foodid" Type="Int32" />
+    <NavigationProperty Name="Food" Relationship="Self.FK_OrderFoodRelation_Food" FromRole="OrderFoodRelation" ToRole="Food" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_OrderFoodRelation_Orders" FromRole="OrderFoodRelation" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_Id" />
+    </Key>
+    <Property Name="order_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_Id" Type="Int32" />
+    <Property Name="price" Type="Double" />
+    <Property Name="date_OrderTaken" Type="DateTime" Precision="0" />
+    <Property Name="date_OrderDelivered" Type="DateTime" Precision="0" />
+    <Property Name="delivery_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderFoodRelations" Relationship="Self.FK_OrderFoodRelation_Orders" FromRole="Orders" ToRole="OrderFoodRelation" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="payment_MethodCode" />
+    </Key>
+    <Property Name="payment_MethodCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payment_Method" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK" FromRole="PaymentMethod" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Address__Employee">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="address_Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="address_Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="customer_AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="payment_MethodCode" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="customer_paymentMethodCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmpFood" Type="Self.EmpFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employee_Id" />
+      </Principal>
+      <Dependent Role="EmpFood">
+        <PropertyRef Name="employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="EmpFood" Type="Self.EmpFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="food_Id" />
+      </Principal>
+      <Dependent Role="EmpFood">
+        <PropertyRef Name="food_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFoodRelation_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="OrderFoodRelation" Type="Self.OrderFoodRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="food_Id" />
+      </Principal>
+      <Dependent Role="OrderFoodRelation">
+        <PropertyRef Name="foodid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFoodRelation_Orders">
+    <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="OrderFoodRelation" Type="Self.OrderFoodRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_Id" />
+      </Principal>
+      <Dependent Role="OrderFoodRelation">
+        <PropertyRef Name="orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HomeMadeFoodEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRole" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="EmpFoods" EntityType="Self.EmpFood" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="OrderFoodRelations" EntityType="Self.OrderFoodRelation" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+    <AssociationSet Name="FK_Address__Employee" Association="Self.FK_Address__Employee">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK" Association="Self.FK">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address" Association="Self.FK_address">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmpFood" EntitySet="EmpFoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="Self.FK2">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="EmpFood" EntitySet="EmpFoods" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFoodRelation_Food" Association="Self.FK_OrderFoodRelation_Food">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="OrderFoodRelation" EntitySet="OrderFoodRelations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFoodRelation_Orders" Association="Self.FK_OrderFoodRelation_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderFoodRelation" EntitySet="OrderFoodRelations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

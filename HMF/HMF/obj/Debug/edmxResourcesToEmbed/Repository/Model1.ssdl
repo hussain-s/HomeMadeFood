@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HomeMadeFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="address_Id" />
+    </Key>
+    <Property Name="address_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="line1" Type="varchar" MaxLength="50" />
+    <Property Name="line2" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="state" Type="varchar" MaxLength="2" />
+    <Property Name="zipcode" Type="int" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="255" />
+    <Property Name="DOB" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_Id" />
+    </Key>
+    <Property Name="customer_Id" Type="int" Nullable="false" />
+    <Property Name="customer_Name" Type="varchar" MaxLength="50" />
+    <Property Name="customer_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="customer_Email" Type="varchar" MaxLength="50" />
+    <Property Name="customer_AddressId" Type="int" />
+    <Property Name="customer_paymentMethodCode" Type="int" />
+  </EntityType>
+  <EntityType Name="EmpFood">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="employee_Id" Type="int" />
+    <Property Name="food_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employee_Id" />
+    </Key>
+    <Property Name="employee_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_Name" Type="varchar" MaxLength="50" />
+    <Property Name="employe_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="address_Id" Type="int" />
+    <Property Name="employee_emailID" Type="varchar" MaxLength="50" />
+    <Property Name="ratings" Type="int" />
+    <Property Name="comments" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="food_Id" />
+    </Key>
+    <Property Name="food_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cuisine" Type="varchar" MaxLength="50" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderFoodRelation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="orderid" Type="int" />
+    <Property Name="foodid" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="order_Id" />
+    </Key>
+    <Property Name="order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_Id" Type="int" />
+    <Property Name="price" Type="float" />
+    <Property Name="date_OrderTaken" Type="date" />
+    <Property Name="date_OrderDelivered" Type="date" />
+    <Property Name="delivery_Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="payment_MethodCode" />
+    </Key>
+    <Property Name="payment_MethodCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payment_Method" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK">
+    <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="payment_MethodCode" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="customer_paymentMethodCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmpFood" Type="Self.EmpFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employee_Id" />
+      </Principal>
+      <Dependent Role="EmpFood">
+        <PropertyRef Name="employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address__Employee">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="address_Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="address_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="address_Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="customer_AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFoodRelation_Food">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="OrderFoodRelation" Type="Self.OrderFoodRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="food_Id" />
+      </Principal>
+      <Dependent Role="OrderFoodRelation">
+        <PropertyRef Name="foodid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFoodRelation_Orders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderFoodRelation" Type="Self.OrderFoodRelation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="order_Id" />
+      </Principal>
+      <Dependent Role="OrderFoodRelation">
+        <PropertyRef Name="orderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Role="Food" Type="Self.Food" Multiplicity="0..1" />
+    <End Role="EmpFood" Type="Self.EmpFood" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="food_Id" />
+      </Principal>
+      <Dependent Role="EmpFood">
+        <PropertyRef Name="food_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HomeMadeFoodModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpFood" EntityType="Self.EmpFood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderFoodRelation" EntityType="Self.OrderFoodRelation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK" Association="Self.FK">
+      <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address" Association="Self.FK_address">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpFood" EntitySet="EmpFood" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address__Employee" Association="Self.FK_Address__Employee">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Address" Association="Self.FK_Customer_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFoodRelation_Food" Association="Self.FK_OrderFoodRelation_Food">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="OrderFoodRelation" EntitySet="OrderFoodRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFoodRelation_Orders" Association="Self.FK_OrderFoodRelation_Orders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderFoodRelation" EntitySet="OrderFoodRelation" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="Self.FK2">
+      <End Role="Food" EntitySet="Food" />
+      <End Role="EmpFood" EntitySet="EmpFood" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

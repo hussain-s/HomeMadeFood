@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HomeMadeFoodModelStoreContainer" CdmEntityContainer="HomeMadeFoodEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="address_Id" ColumnName="address_Id" />
+          <ScalarProperty Name="line1" ColumnName="line1" />
+          <ScalarProperty Name="line2" ColumnName="line2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.AspNetUserRole">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="customer_Id" ColumnName="customer_Id" />
+          <ScalarProperty Name="customer_Name" ColumnName="customer_Name" />
+          <ScalarProperty Name="customer_Phone" ColumnName="customer_Phone" />
+          <ScalarProperty Name="customer_Email" ColumnName="customer_Email" />
+          <ScalarProperty Name="customer_AddressId" ColumnName="customer_AddressId" />
+          <ScalarProperty Name="customer_paymentMethodCode" ColumnName="customer_paymentMethodCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpFoods">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.EmpFood">
+        <MappingFragment StoreEntitySet="EmpFood">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="employee_Id" ColumnName="employee_Id" />
+          <ScalarProperty Name="food_Id" ColumnName="food_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="employee_Id" ColumnName="employee_Id" />
+          <ScalarProperty Name="employee_Name" ColumnName="employee_Name" />
+          <ScalarProperty Name="employe_Phone" ColumnName="employe_Phone" />
+          <ScalarProperty Name="address_Id" ColumnName="address_Id" />
+          <ScalarProperty Name="employee_emailID" ColumnName="employee_emailID" />
+          <ScalarProperty Name="ratings" ColumnName="ratings" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="food_Id" ColumnName="food_Id" />
+          <ScalarProperty Name="cuisine" ColumnName="cuisine" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderFoodRelations">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.OrderFoodRelation">
+        <MappingFragment StoreEntitySet="OrderFoodRelation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="foodid" ColumnName="foodid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="customer_Id" ColumnName="customer_Id" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="date_OrderTaken" ColumnName="date_OrderTaken" />
+          <ScalarProperty Name="date_OrderDelivered" ColumnName="date_OrderDelivered" />
+          <ScalarProperty Name="delivery_Status" ColumnName="delivery_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="HomeMadeFoodModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="payment_MethodCode" ColumnName="payment_MethodCode" />
+          <ScalarProperty Name="payment_Method" ColumnName="payment_Method" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
