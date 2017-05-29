@@ -1,13 +1,2 @@
 version: 0.0
 os: linux
-files:
-
-permissions:
-   - object: 
-     pattern: 
-     owner: 
-     group: 
-     mode: 
-     type:
-       - file
-hooks:
