@@ -12,11 +12,3 @@ permissions:
      type:
        - file
 hooks:
-   BeforeInstall:
-    - location: 
-      runas: 
-    - location: 
-      runas: 
-   AfterInstall:
-    - location: 
-      runas: 
