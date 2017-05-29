@@ -1,0 +1,22 @@
+version: 0.0
+os: ubuntu
+files:
+   - source: 
+     destination: 
+permissions:
+   - object: 
+     pattern: 
+     owner: 
+     group: 
+     mode: 
+     type:
+       - file
+hooks:
+   BeforeInstall:
+    - location: 
+      runas: 
+    - location: 
+      runas: 
+   AfterInstall:
+    - location: 
+      runas: 
